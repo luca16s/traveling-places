@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Dashboard",
+    "index": 0,
+    "isDisabled": false,
+    "icon": "dashboard",
+    "hasChild": true,
+    "childs": [
+      {
+        "name": "Indicadores",
+        "index": 0,
+        "isDisabled": false,
+        "route": "dev/dashboard/indicadores",
+        "breadcrumb": "Dashboard > Indicadores"
+      }
+    ]
+  },
+  {
+    "name": "Usuário",
+    "index": 1,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "Integrações",
+    "index": 2,
+    "isDisabled": false,
+    "icon": "upload",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "Calculadoras",
+    "index": 3,
+    "isDisabled": false,
+    "icon": "calculate",
+    "hasChild": true,
+    "childs": [
+      {
+        "name": "Imobiliário",
+        "index": 0,
+        "isDisabled": false,
+        "icon": "house",
+        "hasChild": true,
+        "childs": [
+          {
+            "name": "Juros de Obra",
+            "index": 0,
+            "isDisabled": false,
+            "route": "dev/calc/juro-obra",
+            "breadcrumb": "Configurações > Calculadora > Juros de Obra"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Configurações",
+    "index": 4,
+    "isDisabled": false,
+    "icon": "settings",
+    "childs": []
+  },
+  {
+    "name": "Assinaturas",
+    "index": 5,
+    "isDisabled": false,
+    "icon": "subscriptions",
+    "hasChild": true,
+    "childs": [
+      {
+        "name": "Criar Assinatura",
+        "index": 0,
+        "isDisabled": false,
+        "route": "dev/subscriptions/create",
+        "breadcrumb": "Assinatura > Criar"
+      }
+    ]
+  },
+  {
+    "name": "",
+    "index": 6,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "",
+    "index": 7,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "",
+    "index": 8,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "",
+    "index": 9,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  },
+  {
+    "name": "",
+    "index": 10,
+    "isDisabled": false,
+    "icon": "",
+    "hasChild": false,
+    "childs": []
+  }
+]

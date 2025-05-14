@@ -19,26 +19,47 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "@/*": [
-        "./src/app/*"
-      ],
       "@assets/*": [
         "./src/assets/*"
       ],
-      "@core/*": [
-        "./src/app/core/*"
+      "@env": [
+        "./src/environments/export"
       ],
-      "@shared/*": [
-        "./src/app/shared/*"
-      ],
-      "@features/*": [
-        "./src/app/features/*"
+      "@pages": [
+        "./src/app/pages/export"
       ],
       "@components": [
         "./src/app/components/export"
       ],
-      "@environments/*": [
-        "./src/environments/*"
+      "@services": [
+        "./src/app/services/export"
+      ],
+      "@models": [
+        "./src/app/models/export"
+      ],
+      "@enums": [
+        "./src/app/enums/export"
+      ],
+      "@shared/pipes": [
+        "./src/app/shared/pipes/export"
+      ],
+      "@shared/models": [
+        "./src/app/shared/models/export"
+      ],
+      "@shared/modules": [
+        "./src/app/shared/modules/export"
+      ],
+      "@shared/helpers": [
+        "./src/app/shared/helpers/export"
+      ],
+      "@shared/services": [
+        "./src/app/shared/services/export"
+      ],
+      "@shared/components": [
+        "./src/app/shared/components/export"
+      ],
+      "@shared/directives": [
+        "./src/app/shared/directives/export"
       ],
     }
   },

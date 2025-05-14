@@ -1,0 +1,43 @@
+:host {
+  height: 100px;
+}
+
+.sidenav-container {
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  min-height: 64px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  max-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  height: 94vh;
+  display: flex;
+  margin-top: 16px;
+  overflow-y: auto;
+  flex-direction: row;
+}
+
+.content-center {
+  margin: 16px;
+}
+
+.sidebar-main {
+  display: flex;
+  max-height: 100%;
+  flex-direction: column;
+
+  .menu {
+    overflow-y: auto;
+  }
+}

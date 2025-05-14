@@ -1,0 +1,39 @@
+<ng-container *ngFor="let menu of (menus$ | async)! | orderBy:'indice'">
+  <ng-container [ngTemplateOutlet]="menu.hasChild ? tmpMenuTitle : tmpMenuItem" [ngTemplateOutletContext]="{ menu }">
+  </ng-container>
+</ng-container>
+
+<ng-template #tmpMenuTitle let-menu="menu">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="menu-header">
+        <mat-panel-title>
+          {{ menu.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          <div class="spacer"></div>
+          <mat-icon class="menu-icon"> {{ menu.icon }} </mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ng-container *ngFor="let item of toMenu(menu.childs) | orderBy:'indice'">
+        <ng-container [ngTemplateOutlet]="item.hasChild ? tmpMenuTitle : tmpMenuItem"
+          [ngTemplateOutletContext]="item.hasChild ? { menu:item } : { menu:item }">
+        </ng-container>
+      </ng-container>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
+
+<ng-template #tmpMenuItem let-menu="menu">
+  <mat-selection-list [multiple]="false" [hideSingleSelectionIndicator]="true">
+    <mat-list-option [value]="menu" routerLinkActive #rla="routerLinkActive" [selected]="rla.isActive"
+      [routerLink]="menu | cwf:getRoute" (isActiveChange)="toggleSidenav.emit()"
+      (selectedChange)="onPreencherTitle(menu)">
+      <div [ngClass]="{ 'menu-item': menu.icon }">
+        {{ menu.name }}
+        <div class="spacer" *ngIf="menu.icon"></div>
+        <mat-icon class="menu-icon" *ngIf="menu.icon"> {{ menu.icon }} </mat-icon>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+</ng-template>

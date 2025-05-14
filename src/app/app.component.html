@@ -1,1 +1,21 @@
-<app-maps/><router-outlet />
+<mat-sidenav-container autosize autoFocus class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches" [(opened)]="isShowSidebar">
+    <div class="sidebar-main scrollbar-none">
+      <div class="brand">
+        <iso-brand [logoAplicacao]="logoAplicacao" [nomeAplicacao]="nomeAplicacao"></iso-brand>
+      </div>
+      <div class="menu">
+        <!-- <iso-sidebar [menuPath]="menuPath" (toggleSidenav)="sidenav.close()"></iso-sidebar> -->
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <iso-toolbar (toggleSidenav)="sidenav.toggle()" [pageTitle]="pageTitle"></iso-toolbar>
+    <div class="main-content">
+      <div class="content-center">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+<mat-toolbar class="toolbar" color="primary">
+  <div class="container-menu">
+    <button mat-icon-button *ngIf="showMenu" (click)="toggleSidenav.emit()" class="toolbar-button">
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
+    <iso-title [pageTitle]="pageTitle"></iso-title>
+  </div>
+  <span fxFlex></span>
+</mat-toolbar>

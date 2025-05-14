@@ -1,11 +1,79 @@
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Component } from '@angular/core';
-import { MapsComponent } from '@components';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { MatIconRegistry } from '@angular/material/icon';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  ViewChild,
+} from '@angular/core';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+
+import { environment } from '@env';
+import {
+  BrandComponent,
+  SidebarComponent,
+  ToolbarComponent,
+} from '@shared/components';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MapsComponent],
+  imports: [
+    CommonModule,
+    MatSidenavModule,
+    ToolbarComponent,
+    BrandComponent,
+    SidebarComponent,
+    RouterOutlet,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  @Input() menuPath: string = environment.menuPath;
+
+  constructor(
+    private matIconReg: MatIconRegistry,
+    media: MediaMatcher,
+    cdr: ChangeDetectorRef
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 1024px)');
+    this.mobileQueryListener = () => cdr.detectChanges();
+
+    if (this.mobileQuery.addEventListener) {
+      this.mobileQuery.addEventListener('change', () => {
+        this.mobileQueryListener();
+      });
+    }
+
+    this.isShowSidebar = this.mobileQuery.matches;
+  }
+
+  ngOnInit(): void {
+    this.matIconReg.setDefaultFontSetClass('material-symbols-outlined');
+  }
+
+  nomeAplicacao = environment.appName;
+  logoAplicacao = environment.appLogo;
+  isShowSidebar: boolean;
+  pageTitle: string = '';
+  mobileQuery: MediaQueryList;
+
+  private mobileQueryListener: () => void;
+
+  onPreencherTitle($event: string): void {
+    this.pageTitle = $event;
+  }
+
+  public ngOnDestroy(): void {
+    if (this.mobileQuery.removeEventListener) {
+      this.mobileQuery.removeEventListener('change', () => {
+        this.mobileQueryListener();
+      });
+    }
+    this.sidenav.close();
+  }
+}

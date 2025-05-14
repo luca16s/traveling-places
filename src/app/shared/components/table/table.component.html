@@ -1,0 +1,35 @@
+<!-- <iso-search (aplicarFiltro)="termoBuscado($event)"></iso-search> -->
+
+<div>
+  <table mat-table [dataSource]="tableContent" matSort multiTemplateDataRows>
+    <ng-container [matColumnDef]="column.name" *ngFor="let column of headerColumns">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.display }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column.name] }} </td>
+      <td mat-footer-cell *matFooterCellDef class="header"> {{ column.display }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail" *ngIf="shouldShowDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="headerColumns.length">
+        <div class="detail" [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'"></div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="headerColumnNames; sticky: true"></tr>
+    <tr mat-row
+        *matRowDef="let element; columns: headerColumnNames;"
+        class="element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+
+    <ng-container *ngIf="shouldShowFooter">
+      <tr mat-footer-row *matFooterRowDef="footerColumnNames; sticky: true"></tr>
+    </ng-container>
+
+    <ng-container *ngIf="shouldShowDetail">
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+    </ng-container>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="pageSize" showFirstLastButtons></mat-paginator>
+</div>
