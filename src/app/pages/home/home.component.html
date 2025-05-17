@@ -7,7 +7,7 @@
     <mat-label>Favorite food</mat-label>
     <mat-select>
       @for (local of (tipoLocal | keys); track local) {
-      <mat-option [value]="local">{{'3'}}</mat-option>
+      <mat-option [value]="local">{{ local | value }}</mat-option>
       }
     </mat-select>
   </mat-form-field>

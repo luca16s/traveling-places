@@ -16,6 +16,7 @@ import { CastPipe, EnumKeysPipe, EnumValuesPipe } from '@shared/pipes';
     MatSelectModule,
     EnumKeysPipe,
     EnumValuesPipe,
+    KeyValuePipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -23,25 +24,4 @@ import { CastPipe, EnumKeysPipe, EnumValuesPipe } from '@shared/pipes';
 export class HomeComponent implements OnInit {
   protected tipoLocal = TipoLocal;
   protected tipoLocalNome = TipoLocalNome;
-
-  ngOnInit(): void {
-    for (const tl of Object.entries(TipoLocal)) {
-      let a: string | TipoLocal = tl[1];
-      let b = a as keyof typeof TipoLocal;
-      let c: TipoLocal = TipoLocal[a as keyof typeof TipoLocal];
-
-      let aa = [tl[0], tl[1] as string];
-
-      console.log(`///////`);
-      var pipe = new EnumValuesPipe();
-      console.log(
-        `texto: ${pipe.transform(
-          TipoLocal,
-          [tl[0], tl[1] as string],
-          TipoLocalNome as Map<TipoLocal, string>
-        )}`
-      );
-      break;
-    }
-  }
 }
