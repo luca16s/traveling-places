@@ -16,6 +16,12 @@ export class MapsComponent implements AfterViewInit {
 
   private markerService: MarkerService = inject(MarkerService);
 
+  @Input() mapZoom: number = 18;
+
+  @Input() mapCenter: leaflet.LatLngExpression = [
+    -22.90657050603725, -43.18853595606364,
+  ];
+
   @Input() localidades: Observable<Localidade[]> | null | undefined;
 
   constructor() {}
@@ -32,9 +38,9 @@ export class MapsComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = leaflet.map('map', {
-      zoom: 18,
+      zoom: this.mapZoom,
       preferCanvas: true,
-      center: [-22.810834345203975, -43.430979833188864],
+      center: this.mapCenter,
     });
 
     leaflet
