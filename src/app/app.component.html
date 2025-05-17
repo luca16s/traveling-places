@@ -13,8 +13,11 @@
   <mat-sidenav-content class="content">
     <iso-toolbar (toggleSidenav)="sidenav.toggle()" [pageTitle]="pageTitle"></iso-toolbar>
     <div class="main-content">
-      <div class="content-center">
+      <div class="content-left">
         <router-outlet></router-outlet>
+      </div>
+      <div class="content-right">
+        <iso-maps [localidades]="getLocalidades()" />
       </div>
     </div>
   </mat-sidenav-content>

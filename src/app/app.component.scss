@@ -6,6 +6,16 @@
   width: 100%;
 }
 
+.sidebar-main {
+  display: flex;
+  max-height: 100%;
+  flex-direction: column;
+
+  .menu {
+    overflow-y: auto;
+  }
+}
+
 .brand {
   display: flex;
   min-height: 64px;
@@ -15,29 +25,23 @@
 }
 
 .content {
-  display: flex;
-  max-height: 100vh;
-  flex-direction: column;
+  height: 100vh;
 }
 
 .main-content {
-  height: 94vh;
   display: flex;
-  margin-top: 16px;
   overflow-y: auto;
+  max-height: 100vh;
   flex-direction: row;
-}
+  align-items: center;
+  margin: 16px 16px 0 16px;
+  justify-content: space-between;
 
-.content-center {
-  margin: 16px;
-}
+  .content-left {
+    width: calc(100vh - 1rem);
+  }
 
-.sidebar-main {
-  display: flex;
-  max-height: 100%;
-  flex-direction: column;
-
-  .menu {
-    overflow-y: auto;
+  .content-right {
+    width: calc(200vh - 1rem);
   }
 }

@@ -32,8 +32,9 @@ export class MapsComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = leaflet.map('map', {
-      center: [-22.810834345203975, -43.430979833188864],
       zoom: 18,
+      preferCanvas: true,
+      center: [-22.810834345203975, -43.430979833188864],
     });
 
     leaflet

@@ -5,6 +5,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import {
   ChangeDetectorRef,
   Component,
+  inject,
   Input,
   ViewChild,
 } from '@angular/core';
@@ -16,6 +17,10 @@ import {
   SidebarComponent,
   ToolbarComponent,
 } from '@shared/components';
+import { MapsComponent } from '@components';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Localidade } from '@models';
 
 @Component({
   selector: 'iso-root',
@@ -26,6 +31,7 @@ import {
     BrandComponent,
     SidebarComponent,
     RouterOutlet,
+    MapsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -34,6 +40,8 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   @Input() menuPath: string = environment.menuPath;
+
+  private http = inject(HttpClient);
 
   constructor(
     private matIconReg: MatIconRegistry,
@@ -63,6 +71,10 @@ export class AppComponent {
   mobileQuery: MediaQueryList;
 
   private mobileQueryListener: () => void;
+
+  protected getLocalidades(): Observable<Localidade[]> | null | undefined {
+    return this.http.get<Localidade[]>('/assets/data/locais.json');
+  }
 
   onPreencherTitle($event: string): void {
     this.pageTitle = $event;
