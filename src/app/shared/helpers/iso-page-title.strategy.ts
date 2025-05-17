@@ -13,7 +13,7 @@ export class IsoPageTitleStrategy extends TitleStrategy {
     if (title !== undefined) {
       this.title.setTitle(`ISO - ${title}`);
     } else {
-      this.title.setTitle(`Shop Savvy App`);
+      this.title.setTitle(`Traveling Loves`);
     }
   }
 }

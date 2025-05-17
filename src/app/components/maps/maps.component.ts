@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   imports: [],
   standalone: true,
-  selector: 'app-maps',
+  selector: 'iso-maps',
   styleUrl: './maps.component.scss',
   templateUrl: './maps.component.html',
 })

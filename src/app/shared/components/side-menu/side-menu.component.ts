@@ -1,14 +1,14 @@
-import { MatListModule } from '@angular/material/list';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { Menu, MenuItem } from '@shared/models';
-import { ConvertWithFunctionPipe, OrderByPipe } from '@shared/pipes';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { CastPipe, OrderByPipe } from '@shared/pipes';
 
 @Component({
   selector: 'iso-sidemenu',
@@ -21,7 +21,7 @@ import { ConvertWithFunctionPipe, OrderByPipe } from '@shared/pipes';
     MatListModule,
     MatIconModule,
     MatExpansionModule,
-    ConvertWithFunctionPipe,
+    CastPipe,
     OrderByPipe,
   ],
 })
@@ -38,7 +38,7 @@ export class SideMenuComponent {
 
   constructor() {
     this.menus$ = this.http.get<Menu[]>(
-      this.menuPath ?? './../../../../assets/data/menu.json'
+      this.menuPath ?? 'assets/data/menu.json'
     );
   }
 

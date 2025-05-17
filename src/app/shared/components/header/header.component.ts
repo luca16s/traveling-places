@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -5,6 +6,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
+  imports: [CommonModule],
 })
 export class HeaderComponent {
   @Input() titulo = '';

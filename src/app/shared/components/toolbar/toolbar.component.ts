@@ -1,4 +1,4 @@
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,10 +7,10 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-
-import { TitleComponent } from '@shared/components';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { TitleComponent } from '@shared/components';
 
 @Component({
   selector: 'iso-toolbar',
@@ -22,7 +22,13 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatIconModule, TitleComponent],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    TitleComponent,
+    MatToolbarModule,
+  ],
 })
 export class ToolbarComponent {
   @Input() showMenu = true;

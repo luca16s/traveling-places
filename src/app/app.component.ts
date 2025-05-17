@@ -18,7 +18,7 @@ import {
 } from '@shared/components';
 
 @Component({
-  selector: 'app-root',
+  selector: 'iso-root',
   imports: [
     CommonModule,
     MatSidenavModule,

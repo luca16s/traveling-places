@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tooltip',
+  selector: 'iso-tooltip',
   imports: [],
   templateUrl: './tooltip.component.html',
-  styleUrl: './tooltip.component.scss'
+  styleUrl: './tooltip.component.scss',
 })
-export class TooltipComponent {
-
-}
+export class TooltipComponent {}

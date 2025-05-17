@@ -11,10 +11,9 @@ export const routes: Routes = [
         title: 'Dashboard',
         children: [
           {
-            path: 'indicadores',
-            title: 'Indicadores',
-            loadComponent: () =>
-              import('@pages').then((c) => c.HomeComponent),
+            path: 'mapa',
+            title: 'Mapa',
+            loadComponent: () => import('@pages').then((c) => c.HomeComponent),
           },
         ],
       },

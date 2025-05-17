@@ -3,6 +3,6 @@ export const environment = {
   production: true,
   appLogo: 'assets/logo.svg',
   menuPath: 'assets/data/menu.json',
-  appName: 'Personal Reserves Board',
+  appName: 'Meu Locais Visitados',
   baseApiUrl: 'https://localhost:7204/api/v1/',
 };

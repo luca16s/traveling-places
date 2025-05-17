@@ -1,13 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-import { SideMenuComponent } from '@shared/components';
+import { SideMenuComponent } from '../side-menu/side-menu.component';
 
 @Component({
   selector: 'iso-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   standalone: true,
-  imports: [SideMenuComponent],
+  imports: [CommonModule, SideMenuComponent],
 })
 export class SidebarComponent {
   @Input() menuPath!: string;

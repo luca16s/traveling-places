@@ -15,9 +15,9 @@
           <mat-icon class="menu-icon"> {{ menu.icon }} </mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <ng-container *ngFor="let item of toMenu(menu.childs) | orderBy:'indice'">
-        <ng-container [ngTemplateOutlet]="item.hasChild ? tmpMenuTitle : tmpMenuItem"
-          [ngTemplateOutletContext]="item.hasChild ? { menu:item } : { menu:item }">
+      <ng-container *ngFor="let submenus of (menu.childs | as:toMenu) | orderBy:'indice'">
+        <ng-container [ngTemplateOutlet]="submenus.hasChild ? tmpMenuTitle : tmpMenuItem"
+          [ngTemplateOutletContext]="submenus.hasChild ? { menu:submenus } : { menu:submenus }">
         </ng-container>
       </ng-container>
     </mat-expansion-panel>
@@ -27,7 +27,7 @@
 <ng-template #tmpMenuItem let-menu="menu">
   <mat-selection-list [multiple]="false" [hideSingleSelectionIndicator]="true">
     <mat-list-option [value]="menu" routerLinkActive #rla="routerLinkActive" [selected]="rla.isActive"
-      [routerLink]="menu | cwf:getRoute" (isActiveChange)="toggleSidenav.emit()"
+      [routerLink]="menu | as:getRoute" (isActiveChange)="toggleSidenav.emit()"
       (selectedChange)="onPreencherTitle(menu)">
       <div [ngClass]="{ 'menu-item': menu.icon }">
         {{ menu.name }}

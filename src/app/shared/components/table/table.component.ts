@@ -1,7 +1,13 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
@@ -22,7 +28,7 @@ import { Table } from '@shared/models';
     ]),
   ],
   standalone: true,
-  imports: [CommonModule, MatPaginator, MatSort, MatTableModule],
+  imports: [CommonModule, MatTableModule, MatPaginatorModule],
 })
 export class TableComponent implements OnInit {
   @Input() pageSize: number[] = [];
@@ -50,10 +56,10 @@ export class TableComponent implements OnInit {
       return a.position - b.position;
     });
     this.tableContent = new MatTableDataSource<unknown>(this.dataSource);
-    this.headerColumnNames = this.headerColumns.map((coluna) => {
+    this.headerColumnNames = this.headerColumns.map(coluna => {
       return coluna.name;
     });
-    this.footerColumnNames = this.footerColumns.map((coluna) => {
+    this.footerColumnNames = this.footerColumns.map(coluna => {
       return coluna.name;
     });
   }

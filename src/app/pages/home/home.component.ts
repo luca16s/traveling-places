@@ -5,7 +5,7 @@ import { Localidade } from '@models';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-home',
+  selector: 'iso-home',
   imports: [MapsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
