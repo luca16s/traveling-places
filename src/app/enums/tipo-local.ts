@@ -11,7 +11,7 @@ export enum TipoLocal {
   CASA = 7,
 }
 
-export const tipoLocalNome = new Map<TipoLocal, string>([
+export const TipoLocalNome = new Map<TipoLocal, string>([
   [TipoLocal.CASA, 'Casa'],
   [TipoLocal.LOJA, 'Loja'],
   [TipoLocal.HOTEL, 'Hotel'],
@@ -22,7 +22,7 @@ export const tipoLocalNome = new Map<TipoLocal, string>([
   [TipoLocal.RESTAURANTE, 'Restaurante'],
 ]);
 
-export const tipoLocalIcone = new Map<TipoLocal, Icon>([
+export const TipoLocalIcone = new Map<TipoLocal, Icon>([
   [TipoLocal.CASA, Icon.HOME],
   [TipoLocal.LOJA, Icon.STORE],
   [TipoLocal.HOTEL, Icon.HOTEL],

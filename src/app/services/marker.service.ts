@@ -1,4 +1,4 @@
-import { iconPath, tipoLocalIcone } from '@enums';
+import { iconPath, TipoLocalIcone } from '@enums';
 import { inject, Injectable } from '@angular/core';
 import leaflet from 'leaflet';
 import { Localidade } from '@models';
@@ -22,7 +22,7 @@ export class MarkerService {
       throw new Error('Tipo de localidade não definido.');
     }
 
-    const iconType = tipoLocalIcone.get(localidade.tipo);
+    const iconType = TipoLocalIcone.get(localidade.tipo);
 
     if (iconType === undefined) {
       throw new Error('Tipo de localidade inválido.');
