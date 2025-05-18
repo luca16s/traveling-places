@@ -1,27 +1,21 @@
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TipoLocal, TipoLocalNome } from '@enums';
-import { CastPipe, EnumKeysPipe, EnumValuesPipe } from '@shared/pipes';
+import { EnumPipe } from '@shared/pipes';
+import { EnumType } from '@shared/models';
 
 @Component({
   selector: 'iso-home',
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    EnumKeysPipe,
-    EnumValuesPipe,
-    KeyValuePipe,
-  ],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, EnumPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   protected tipoLocal = TipoLocal;
   protected tipoLocalNome = TipoLocalNome;
+
+  protected localSelecionado!: EnumType;
 }

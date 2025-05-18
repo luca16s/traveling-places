@@ -5,9 +5,9 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Favorite food</mat-label>
-    <mat-select>
-      @for (local of (tipoLocal | keys); track local) {
-      <mat-option [value]="local">{{ local | value }}</mat-option>
+    <mat-select [(value)]="localSelecionado">
+      @for (local of (tipoLocal | enumKvP:tipoLocalNome); track local) {
+      <mat-option [value]="local.key">{{ local.label }}</mat-option>
       }
     </mat-select>
   </mat-form-field>
