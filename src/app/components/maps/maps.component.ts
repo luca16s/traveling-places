@@ -19,7 +19,7 @@ export class MapsComponent implements AfterViewInit {
   @Input() mapZoom: number = 18;
 
   @Input() mapCenter: leaflet.LatLngExpression = [
-    -22.90657050603725, -43.18853595606364,
+    -22.81135925435108, -43.430944215754835,
   ];
 
   @Input() localidades: Observable<Localidade[]> | null | undefined;

@@ -4,10 +4,14 @@
     <input matInput placeholder="Nome do Local">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Favorite food</mat-label>
-    <mat-select [(value)]="localSelecionado">
+    <mat-label>Tipo de Local</mat-label>
+    <mat-icon matIconPrefix>{{ tipoLocalIcone.get(localSelecionado.key) }}</mat-icon>
+    <mat-select (selectionChange)="onLocalSelecionado($event)">
       @for (local of (tipoLocal | enumKvP:tipoLocalNome); track local) {
-      <mat-option [value]="local.key">{{ local.label }}</mat-option>
+      <mat-option [value]="local.key">
+        {{ local.label }}
+        <mat-icon matIconPrefix>{{ tipoLocalIcone.get(local.key) }}</mat-icon>
+      </mat-option>
       }
     </mat-select>
   </mat-form-field>

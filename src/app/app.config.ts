@@ -8,8 +8,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withFetch()),
     provideAnimationsAsync(),
+    provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay()),
     provideRouter(routes, withComponentInputBinding()),
     provideZoneChangeDetection({ eventCoalescing: true }),

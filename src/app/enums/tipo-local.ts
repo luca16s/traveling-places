@@ -22,7 +22,7 @@ export const TipoLocalNome = new Map<TipoLocal, string>([
   [TipoLocal.RESTAURANTE, 'Restaurante'],
 ]);
 
-export const TipoLocalIcone = new Map<TipoLocal, Icon>([
+export const TipoLocalIcon = new Map<TipoLocal, Icon>([
   [TipoLocal.CASA, Icon.HOME],
   [TipoLocal.LOJA, Icon.STORE],
   [TipoLocal.HOTEL, Icon.HOTEL],
@@ -31,4 +31,15 @@ export const TipoLocalIcone = new Map<TipoLocal, Icon>([
   [TipoLocal.PIZZARIA, Icon.PIZZA],
   [TipoLocal.AEROPORTO, Icon.HEART],
   [TipoLocal.RESTAURANTE, Icon.RESTAURANT],
+]);
+
+export const TipoLocalIcone = new Map<TipoLocal, string>([
+  [TipoLocal.HOTEL, 'hotel'],
+  [TipoLocal.PARQUE, 'park'],
+  [TipoLocal.MUSEU, 'museum'],
+  [TipoLocal.CASA, 'home_pin'],
+  [TipoLocal.LOJA, 'storefront'],
+  [TipoLocal.AEROPORTO, 'flight'],
+  [TipoLocal.PIZZARIA, 'local_pizza'],
+  [TipoLocal.RESTAURANTE, 'restaurant'],
 ]);

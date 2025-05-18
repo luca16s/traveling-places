@@ -1,15 +1,12 @@
-import { iconPath, TipoLocalIcone } from '@enums';
-import { inject, Injectable } from '@angular/core';
+import { iconPath, TipoLocalIcon } from '@enums';
+import { Injectable } from '@angular/core';
 import leaflet from 'leaflet';
 import { Localidade } from '@models';
-import { PopupService } from './export';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MarkerService {
-  private popupService: PopupService = inject(PopupService);
-
   constructor() {}
 
   private getIconPath(localidade: Localidade): string | undefined | null {
@@ -22,7 +19,7 @@ export class MarkerService {
       throw new Error('Tipo de localidade não definido.');
     }
 
-    const iconType = TipoLocalIcone.get(localidade.tipo);
+    const iconType = TipoLocalIcon.get(localidade.tipo);
 
     if (iconType === undefined) {
       throw new Error('Tipo de localidade inválido.');
@@ -52,8 +49,6 @@ export class MarkerService {
           }),
         }
       )
-      .addTo(map)
-      .bindPopup(this.popupService.openPopup(local))
-      .bindTooltip(local.nome);
+      .addTo(map);
   }
 }
