@@ -17,6 +17,24 @@
             "nome": "Nilópolis"
           }
         ]
+      },
+      {
+        "nome": "Paraíba",
+        "sigla": "PB",
+        "cidades": [
+          {
+            "nome": "João Pessoa"
+          },
+          {
+            "nome": "Cabedelo"
+          },
+          {
+            "nome": "Conde"
+          },
+          {
+            "nome": "Alhandra"
+          }
+        ]
       }
     ]
   }

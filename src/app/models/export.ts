@@ -1,5 +1,5 @@
 export * from './endereco';
-export * from './localidade';
+export * from './local';
 export * from './coordenada';
 export * from './cidade';
 export * from './estado';

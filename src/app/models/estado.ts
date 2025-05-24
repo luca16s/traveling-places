@@ -1,13 +1,23 @@
-import { Cidade } from "@models";
-
 export class Estado {
-  public nome: string = '';
-  public sigla: string = '';
-  public cidades: Cidade[] = [];
+  public nome!: string;
+  public sigla!: string;
 
-  constructor(sigla: string, nome: string, cidades: Cidade[]) {
+  constructor(
+    nome: string | null | undefined,
+    sigla: string | null | undefined
+  ) {
+    if (!nome || !sigla) {
+      throw new Error('Nome e sigla são obrigatórios');
+    }
+
     this.nome = nome;
     this.sigla = sigla;
-    this.cidades = cidades;
+  }
+
+  static fromForm(formData: {
+    nome: string | null | undefined;
+    sigla: string | null | undefined;
+  }): Estado {
+    return new Estado(formData.nome, formData.sigla);
   }
 }

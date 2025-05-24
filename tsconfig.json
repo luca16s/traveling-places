@@ -37,6 +37,9 @@
       "@models": [
         "./src/app/models/export"
       ],
+      "@interfaces": [
+        "./src/app/interfaces/export"
+      ],
       "@enums": [
         "./src/app/enums/export"
       ],

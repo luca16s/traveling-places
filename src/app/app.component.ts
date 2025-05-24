@@ -19,7 +19,7 @@ import {
 import { MapsComponent } from '@components';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Localidade } from '@models';
+import { Local } from '@models';
 import { HomeComponent } from '@pages';
 
 @Component({
@@ -72,8 +72,8 @@ export class AppComponent {
 
   private mobileQueryListener: () => void;
 
-  protected getLocalidades(): Observable<Localidade[]> | null | undefined {
-    return this.http.get<Localidade[]>('/assets/data/locais.json');
+  protected getLocalidades(): Observable<Local[]> | null | undefined {
+    return this.http.get<Local[]>('/assets/data/locais.json');
   }
 
   onPreencherTitle($event: string): void {

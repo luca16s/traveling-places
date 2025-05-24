@@ -1,35 +1,42 @@
-<form [formGroup]="localidadeForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="localForm" (ngSubmit)="onSubmit()">
   <div class="cabecalho-container">
-    <mat-form-field>
-      <mat-label>Local</mat-label>
-      <input matInput placeholder="Nome do Local" formControlName="local">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Tipo de Local</mat-label>
-      <mat-icon matIconPrefix>{{ tipoLocalIcone.get(localSelecionado.key) }}</mat-icon>
-      <mat-select (selectionChange)="onLocalSelecionado($event)" formControlName="tipoLocal">
-        @for (local of (tipoLocal | enumKvP:tipoLocalNome); track local) {
-        <mat-option [value]="local.key">
-          {{ local.label }}
-          <mat-icon matIconPrefix>{{ tipoLocalIcone.get(local.key) }}</mat-icon>
-        </mat-option>
+    <div class="row">
+      <mat-form-field class="local-field">
+        <mat-label>Local</mat-label>
+        <input matInput placeholder="Nome do Local" formControlName="local" class="local-input">
+        @if (local.local.invalid && (local.local.dirty || local.local.touched)
+        ) {
+        <mat-error>Nome não inserido.</mat-error>
         }
-      </mat-select>
-    </mat-form-field>
+      </mat-form-field>
+      <mat-form-field class="tipo-local-field">
+        <mat-label>Tipo de Local</mat-label>
+        <mat-icon matIconPrefix>{{ tipoLocalIcone.get(localSelecionado.key) }}</mat-icon>
+        <mat-select (selectionChange)="onLocalSelecionado($event)" formControlName="tipoLocal" class="tipo-local-input">
+          @for (local of (tipoLocal | enumKvP:tipoLocalNome); track local) {
+          <mat-option [value]="local.key">
+            {{ local.label }}
+            <mat-icon matIconPrefix>{{ tipoLocalIcone.get(local.key) }}</mat-icon>
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
   <div class="endereco-container">
     <div class="row">
       <mat-form-field class="endereco-input">
         <mat-label>Logradouro</mat-label>
-        <input matInput placeholder="Logradouro" formControlName="logradouro" class="endereco-input">
+        <input matInput placeholder="Logradouro" formControlName="logradouro" class="logradouro-input">
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field>
         <mat-label>Número</mat-label>
         <input matInput placeholder="Número" formControlName="numero" isoNumbersOnly>
-      </mat-form-field><mat-form-field>
+      </mat-form-field>
+      <mat-form-field class="bairro-input">
         <mat-label>Bairro</mat-label>
         <input matInput placeholder="Bairro" formControlName="bairro">
       </mat-form-field>
@@ -45,7 +52,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Estado</mat-label>
-        <mat-select [disabled]="!estados" (selectionChange)="onEstadoSelecionado($event)" formControlName="estado">
+        <mat-select (selectionChange)="onEstadoSelecionado($event)" formControlName="estado" [isoDisabled]="local.pais">
           @for (estado of estados; track estado) {
           <mat-option [value]="estado">{{ estado.nome }}</mat-option>
           }
@@ -53,28 +60,29 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Cidade</mat-label>
-        <mat-select [disabled]="!cidades" formControlName="cidade">
+        <mat-select formControlName="cidade" [isoDisabled]="local.estado">
           @for (cidade of cidades; track cidade) {
           <mat-option [value]="cidade">{{ cidade.nome }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="row">
-      <mat-form-field>
+    <div class="row" formGroupName="coordenada">
+      <mat-form-field class="geo-location-input">
         <mat-icon matIconPrefix>add_location</mat-icon>
         <mat-label>Latitude</mat-label>
         <input matInput placeholder="Latitude" type="text" isoNumbersOnly formControlName="latitude">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="geo-location-input">
         <mat-icon matIconPrefix>add_location</mat-icon>
         <mat-label>Longitude</mat-label>
         <input matInput placeholder="Longitude" type="text" isoNumbersOnly formControlName="longitude">
       </mat-form-field>
     </div>
   </div>
-  <div>
+
+  <div class="acoes-container">
     <button mat-button type="button" (click)="onLimpar()">Limpar</button>
-    <button mat-button type="submit" [disabled]="!localidadeForm.valid">Enviar</button>
+    <button mat-button type="submit" [disabled]="!localForm.valid">Enviar</button>
   </div>
 </form>

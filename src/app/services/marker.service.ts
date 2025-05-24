@@ -1,7 +1,7 @@
 import { iconPath, TipoLocalIcon } from '@enums';
 import { Injectable } from '@angular/core';
 import leaflet from 'leaflet';
-import { Localidade } from '@models';
+import { Local } from '@models';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ import { Localidade } from '@models';
 export class MarkerService {
   constructor() {}
 
-  private getIconPath(localidade: Localidade): string | undefined | null {
+  private getIconPath(localidade: Local): string | undefined | null {
     if (
       localidade === null ||
       localidade === undefined ||
@@ -30,9 +30,9 @@ export class MarkerService {
 
   public addIcon(
     map: leaflet.Map | undefined,
-    local: Localidade | null | undefined
+    local: Local | null | undefined
   ): void {
-    if (!map || !local) {
+    if (!map || !local || !local.endereco || !local.endereco.coordenadas) {
       console.error('Mapa ou local não definido.');
       return;
     }
@@ -56,7 +56,7 @@ export class MarkerService {
     map.whenReady(function () {
       map.addLayer(marcadores);
     });
-    
+
     map.on('zoomend', function () {
       if (map.getZoom() < 10) {
         map.removeLayer(marcadores);

@@ -1,4 +1,4 @@
-import { Localidade } from '../../models/localidade';
+import { Local } from '../../models/local';
 import { AfterViewInit, Component, inject, Input } from '@angular/core';
 import * as leaflet from 'leaflet';
 import { MarkerService } from '@services';
@@ -22,7 +22,7 @@ export class MapsComponent implements AfterViewInit {
     -22.81135925435108, -43.430944215754835,
   ];
 
-  @Input() localidades: Observable<Localidade[]> | null | undefined;
+  @Input() localidades: Observable<Local[]> | null | undefined;
 
   constructor() {}
 
