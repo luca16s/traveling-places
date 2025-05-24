@@ -14,7 +14,7 @@ export class Localidade {
     this.nome = nome;
     this.tipo = tipo;
     this.endereco = new Endereco(
-      endereco.rua,
+      endereco.logradouro,
       endereco.numero,
       endereco.bairro,
       endereco.cidade,

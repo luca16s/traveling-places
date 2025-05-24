@@ -50,7 +50,7 @@ export class MapsComponent implements AfterViewInit {
           maxZoom: 18,
           minZoom: 3,
           attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="http://www.cartodb.com/attributions" target="_blank">CartoDB</a>',
         }
       )
       .addTo(this.map);

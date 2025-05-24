@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatIconRegistry } from '@angular/material/icon';
 import {
@@ -21,6 +20,7 @@ import { MapsComponent } from '@components';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Localidade } from '@models';
+import { HomeComponent } from '@pages';
 
 @Component({
   selector: 'iso-root',
@@ -30,8 +30,8 @@ import { Localidade } from '@models';
     ToolbarComponent,
     BrandComponent,
     SidebarComponent,
-    RouterOutlet,
     MapsComponent,
+    HomeComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

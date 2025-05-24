@@ -14,7 +14,7 @@
     <iso-toolbar (toggleSidenav)="sidenav.toggle()" [pageTitle]="pageTitle"></iso-toolbar>
     <div class="main-content">
       <div class="content-left">
-        <router-outlet></router-outlet>
+        <iso-home></iso-home>
       </div>
       <div class="content-right">
         <iso-maps [localidades]="getLocalidades()" />

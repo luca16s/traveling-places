@@ -1,0 +1,23 @@
+[
+  {
+    "nome": "Brasil",
+    "sigla": "BR",
+    "estados": [
+      {
+        "nome": "Rio de Janeiro",
+        "sigla": "RJ",
+        "cidades": [
+          {
+            "nome": "Rio de Janeiro"
+          },
+          {
+            "nome": "Nova Iguaçu"
+          },
+          {
+            "nome": "Nilópolis"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -38,10 +38,12 @@
   justify-content: space-between;
 
   .content-left {
+    padding: 8px;
     width: calc(100vh - 1rem);
   }
 
   .content-right {
+    padding: 8px;
     width: calc(200vh - 1rem);
   }
 }

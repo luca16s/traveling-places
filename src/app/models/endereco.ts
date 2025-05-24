@@ -1,7 +1,7 @@
 import { Coordinate as Coordenada } from './export';
 
 export class Endereco {
-  rua!: string;
+  logradouro!: string;
   numero!: string;
   bairro!: string;
   cidade!: string;
@@ -10,7 +10,7 @@ export class Endereco {
   coordenadas!: Coordenada;
 
   constructor(
-    rua: string,
+    logradouro: string,
     numero: string,
     bairro: string,
     cidade: string,
@@ -18,7 +18,7 @@ export class Endereco {
     pais: string,
     coordinate: Coordenada
   ) {
-    this.rua = rua;
+    this.logradouro = logradouro;
     this.numero = numero;
     this.bairro = bairro;
     this.cidade = cidade;

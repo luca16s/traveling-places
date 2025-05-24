@@ -37,18 +37,32 @@ export class MarkerService {
       return;
     }
 
-    leaflet
-      .marker(
-        [
-          local.endereco.coordenadas.latitude,
-          local.endereco.coordenadas.longitude,
-        ],
-        {
-          icon: leaflet.icon({
-            iconUrl: this.getIconPath(local) ?? '',
-          }),
-        }
-      )
-      .addTo(map);
+    var marcadores = new leaflet.FeatureGroup();
+
+    const marker = leaflet.marker(
+      [
+        local.endereco.coordenadas.latitude,
+        local.endereco.coordenadas.longitude,
+      ],
+      {
+        icon: leaflet.icon({
+          iconUrl: this.getIconPath(local) ?? '',
+        }),
+      }
+    );
+
+    marcadores.addLayer(marker);
+
+    map.whenReady(function () {
+      map.addLayer(marcadores);
+    });
+    
+    map.on('zoomend', function () {
+      if (map.getZoom() < 10) {
+        map.removeLayer(marcadores);
+      } else {
+        map.addLayer(marcadores);
+      }
+    });
   }
 }
