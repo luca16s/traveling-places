@@ -9,13 +9,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         title: 'Dashboard',
-        children: [
-          {
-            path: 'mapa',
-            title: 'Mapa',
-            loadComponent: () => import('@pages').then((c) => c.HomeComponent),
-          },
-        ],
+        children: [],
       },
     ],
   },

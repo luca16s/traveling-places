@@ -16,11 +16,10 @@ import {
   SidebarComponent,
   ToolbarComponent,
 } from '@shared/components';
-import { MapsComponent } from '@components';
+import { LocalComponent, MapsComponent } from '@components';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Local } from '@models';
-import { HomeComponent } from '@pages';
 
 @Component({
   selector: 'iso-root',
@@ -31,7 +30,7 @@ import { HomeComponent } from '@pages';
     BrandComponent,
     SidebarComponent,
     MapsComponent,
-    HomeComponent,
+    LocalComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

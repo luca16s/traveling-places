@@ -27,7 +27,7 @@ import { ICidade, IEstado, IPais } from '@interfaces';
 import { CoordenadaForm, LocalForm } from './interfaces/export';
 
 @Component({
-  selector: 'iso-home',
+  selector: 'iso-local',
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -42,10 +42,10 @@ import { CoordenadaForm, LocalForm } from './interfaces/export';
     NumbersOnlyDirective,
     DisabledFieldDirective,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './local.component.html',
+  styleUrl: './local.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class LocalComponent implements OnInit {
   private http = inject(HttpClient);
   private formBuilder = inject(FormBuilder);
 
