@@ -1,18 +1,1 @@
-[
-  {
-    "name": "Dashboard",
-    "index": 0,
-    "isDisabled": false,
-    "icon": "dashboard",
-    "hasChild": true,
-    "childs": [
-      {
-        "name": "Mapa",
-        "index": 0,
-        "isDisabled": false,
-        "route": "travel/dashboard/mapa",
-        "breadcrumb": "Dashboard > Mapa"
-      }
-    ]
-  }
-]
+[]
