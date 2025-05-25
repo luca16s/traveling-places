@@ -1,7 +1,6 @@
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
-
 import { Component, inject, OnInit } from '@angular/core';
 import { TipoLocal, TipoLocalIcone, TipoLocalNome } from '@enums';
 import { CastPipe, EnumPipe } from '@shared/pipes';

@@ -1,1 +1,1 @@
-export * from './marker.service';
+export * from './map.service';
