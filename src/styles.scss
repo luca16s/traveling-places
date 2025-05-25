@@ -10,3 +10,9 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #faf9fd;
 }
+
+iso-root {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}

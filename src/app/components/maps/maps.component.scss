@@ -1,3 +1,7 @@
+@use '../../../styles/variables' as vars;
+
 #map {
-  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  height: calc(98vh - vars.$toolbar-height);
 }
