@@ -45,7 +45,7 @@
       <mat-form-field>
         <mat-label>País</mat-label>
         <mat-select (selectionChange)="onPaisSelecionado($event)" formControlName="pais">
-          @for (pais of (paises | async); track pais) {
+          @for (pais of paises | as:convertPaisToSelect; track pais.sigla) {
           <mat-option [value]="pais">{{ pais.nome }}</mat-option>
           }
         </mat-select>
@@ -53,7 +53,7 @@
       <mat-form-field>
         <mat-label>Estado</mat-label>
         <mat-select (selectionChange)="onEstadoSelecionado($event)" formControlName="estado" [isoDisabled]="local.pais">
-          @for (estado of estados; track estado) {
+          @for (estado of estados; track estado.sigla) {
           <mat-option [value]="estado">{{ estado.nome }}</mat-option>
           }
         </mat-select>
