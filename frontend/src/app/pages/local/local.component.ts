@@ -22,8 +22,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { ICidade, IEstado, IPais } from '@interfaces';
-import { CoordenadaForm, LocalForm } from './interfaces/export';
+import { CoordenadaForm, ICidade, IEstado, IPais, LocalForm } from '@interfaces';
 
 @Component({
   selector: 'iso-local',

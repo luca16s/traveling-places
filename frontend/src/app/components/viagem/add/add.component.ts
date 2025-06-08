@@ -7,8 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ViagemForm } from '../../interfaces/viagem-form';
-import { ViagemService } from '../../services/viagem.service';
+import { ViagemForm } from '../../../interfaces/form/viagem-form';
 import { Viagem } from '@models';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,9 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ViagemService } from '@services';
 
 @Component({
-  selector: 'iso-add-viagem',
+  selector: 'iso-viagem-add',
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -32,8 +32,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDatepickerModule,
   ],
   standalone: true,
-  templateUrl: './add-viagem.component.html',
-  styleUrl: './add-viagem.component.scss',
+  templateUrl: './add.component.html',
+  styleUrl: './add.component.scss',
 })
 export class AddViagemComponent implements OnInit {
   private formBuilder = inject(FormBuilder);

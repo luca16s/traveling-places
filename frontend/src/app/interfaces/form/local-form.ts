@@ -1,7 +1,7 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { TipoLocal } from '@enums';
+import { CoordenadaForm } from '@interfaces';
 import { Cidade, Estado, Pais } from '@models';
-import { CoordenadaForm } from './export';
 
 export interface LocalForm {
   local: FormControl<string | null | undefined>;

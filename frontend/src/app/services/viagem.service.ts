@@ -1,4 +1,4 @@
-import { BaseService } from './../../../shared/services/base.service';
+import { BaseService } from '../shared/services/base.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

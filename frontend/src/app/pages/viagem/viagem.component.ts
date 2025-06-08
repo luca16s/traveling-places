@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AddViagemComponent, ListaViagemComponent } from './components/export';
+import { AddViagemComponent, ListaViagemComponent } from '@components';
 
 @Component({
   selector: 'iso-viagem',
