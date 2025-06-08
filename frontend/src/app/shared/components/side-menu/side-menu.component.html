@@ -1,5 +1,5 @@
 <ng-container *ngFor="let menu of (menus$ | async)! | orderBy:'indice'">
-  <ng-container [ngTemplateOutlet]="menu.hasChild ? tmpMenuTitle : tmpMenuItem" [ngTemplateOutletContext]="{ menu }">
+  <ng-container [ngTemplateOutlet]="menu.hasSubMenu ? tmpMenuTitle : tmpMenuItem" [ngTemplateOutletContext]="{ menu }">
   </ng-container>
 </ng-container>
 
@@ -15,17 +15,28 @@
           <mat-icon class="menu-icon"> {{ menu.icon }} </mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <ng-container *ngFor="let submenus of (menu.childs | as:toMenu) | orderBy:'indice'">
-        <ng-container [ngTemplateOutlet]="submenus.hasChild ? tmpMenuTitle : tmpMenuItem"
-          [ngTemplateOutletContext]="submenus.hasChild ? { menu:submenus } : { menu:submenus }">
+      <ng-container *ngFor="let submenus of (menu.subMenus | as:toMenu) | orderBy:'indice'">
+        <ng-container [ngTemplateOutlet]="submenus.hasSubMenu ? tmpMenuTitle : tmpMenuItem"
+          [ngTemplateOutletContext]="{ menu, submenu: submenus }">
         </ng-container>
       </ng-container>
     </mat-expansion-panel>
   </mat-accordion>
 </ng-template>
 
-<ng-template #tmpMenuItem let-menu="menu">
+<ng-template #tmpMenuItem let-menu="menu" let-submenu="submenu">
   <mat-selection-list [multiple]="false" [hideSingleSelectionIndicator]="true">
+    @if (submenu) {
+    <mat-list-option [value]="submenu" routerLinkActive #rla="routerLinkActive" [selected]="rla.isActive"
+      [routerLink]="{ menu, submenu } | as:getRoute" (isActiveChange)="toggleSidenav.emit()"
+      (selectedChange)="onPreencherTitle(submenu)">
+      <div [ngClass]="{ 'menu-item': submenu.icon }">
+        {{ submenu.name }}
+        <div class="spacer" *ngIf="submenu.icon"></div>
+        <mat-icon class="menu-icon" *ngIf="submenu.icon"> {{ submenu.icon }} </mat-icon>
+      </div>
+    </mat-list-option>
+    } @else {
     <mat-list-option [value]="menu" routerLinkActive #rla="routerLinkActive" [selected]="rla.isActive"
       [routerLink]="menu | as:getRoute" (isActiveChange)="toggleSidenav.emit()"
       (selectedChange)="onPreencherTitle(menu)">
@@ -35,5 +46,6 @@
         <mat-icon class="menu-icon" *ngIf="menu.icon"> {{ menu.icon }} </mat-icon>
       </div>
     </mat-list-option>
+    }
   </mat-selection-list>
 </ng-template>

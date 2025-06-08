@@ -1,0 +1,31 @@
+.cabecalho-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .row {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .destino-field {
+    width: 100%;
+
+    .destino-input {
+      width: inherit;
+    }
+  }
+}
+
+.acoes-container {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}

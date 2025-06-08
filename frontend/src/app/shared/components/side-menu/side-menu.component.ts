@@ -1,14 +1,15 @@
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Menu, MenuItem } from '@shared/models';
+import { Menu } from '@shared/models';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CastPipe, OrderByPipe } from '@shared/pipes';
+import { environment } from '@env';
 
 @Component({
   selector: 'iso-sidemenu',
@@ -26,8 +27,6 @@ import { CastPipe, OrderByPipe } from '@shared/pipes';
   ],
 })
 export class SideMenuComponent {
-  @Input() menuPath!: string;
-
   @Output() toggleSidenav = new EventEmitter<void>();
 
   @Output() pageTitle: EventEmitter<string> = new EventEmitter<string>();
@@ -38,7 +37,7 @@ export class SideMenuComponent {
 
   constructor() {
     this.menus$ = this.http.get<Menu[]>(
-      this.menuPath ?? 'assets/data/menu.json'
+      `${environment.baseApiUrl}${environment.menuPath}`
     );
   }
 
@@ -46,11 +45,17 @@ export class SideMenuComponent {
     return value as Menu[];
   }
 
-  onPreencherTitle(menu: MenuItem): void {
+  onPreencherTitle(menu: Menu): void {
     this.pageTitle.emit(menu.breadcrumb);
   }
 
-  getRoute = (menu: MenuItem): string | null => {
-    return menu.route;
+  getRoute = (x: { menu: Menu; submenu: Menu }): string | null => {
+    if (!x || !x.menu || !x.submenu) {
+      return null;
+    }
+
+    console.log('getRoute', `${x.menu.route}/${x.submenu.route}`);
+
+    return `${environment.baseRoute}/${x.menu.route}/${x.submenu.route}`;
   };
 }

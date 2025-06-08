@@ -6,11 +6,8 @@ export interface BaseMenu {
 
 export interface Menu extends BaseMenu {
   icon: string;
-  hasChild: boolean;
-  childs: MenuItem[];
-}
-
-export interface MenuItem extends BaseMenu {
   route: string;
   breadcrumb: string;
+  hasSubMenu: boolean;
+  subMenus: Menu[];
 }

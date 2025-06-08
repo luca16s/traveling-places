@@ -4,9 +4,7 @@ import {
   Component,
   inject,
   Input,
-  ViewChild,
 } from '@angular/core';
-import * as leaflet from 'leaflet';
 import { MapService } from '@services';
 import { Observable } from 'rxjs';
 import { Coordenada } from '@models';

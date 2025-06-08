@@ -10,8 +10,6 @@ import { SideMenuComponent } from '../side-menu/side-menu.component';
   imports: [CommonModule, SideMenuComponent],
 })
 export class SidebarComponent {
-  @Input() menuPath!: string;
-
   @Output() pageTitle: EventEmitter<string> = new EventEmitter<string>();
 
   onPreencherTitle(title: string): void {

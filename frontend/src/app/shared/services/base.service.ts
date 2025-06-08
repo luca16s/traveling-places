@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { inject, Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,9 @@ import { environment } from '@env';
   providedIn: 'root',
 })
 export class BaseService {
-  constructor(private http: HttpClient, @Inject('url') private url: string) {}
+  http = inject(HttpClient);
+
+  constructor(@Inject('url') private url: string) {}
 
   get<TModel>(): Observable<TModel> {
     return this.http.get<TModel>(`${environment.baseApiUrl}${this.url}`);

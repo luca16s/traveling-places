@@ -4,19 +4,14 @@
     <div>
       <iso-brand [logoAplicacao]="logoAplicacao" [nomeAplicacao]="nomeAplicacao"></iso-brand>
       <div>
-        <iso-sidebar [menuPath]="menuPath" (toggleSidenav)="sidenav.close()"></iso-sidebar>
+        <iso-sidebar (toggleSidenav)="sidenav.close()"></iso-sidebar>
       </div>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <iso-toolbar (toggleSidenav)="sidenav.toggle()" [pageTitle]="pageTitle"></iso-toolbar>
     <div class="main-content">
-      <div class="content-left">
-        <iso-local></iso-local>
-      </div>
-      <div class="content-right">
-        <iso-maps [locais]="getLocalidades()" />
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

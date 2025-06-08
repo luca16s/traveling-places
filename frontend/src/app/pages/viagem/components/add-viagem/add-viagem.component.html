@@ -1,0 +1,39 @@
+<form [formGroup]="viagemForm" (ngSubmit)="onSubmit()">
+  <div class="cabecalho-container">
+    <div class="row">
+      <mat-form-field class="destino-field">
+        <mat-label>Destino</mat-label>
+        <input matInput placeholder="Nome do Destino" formControlName="destino" class="destino">
+        @if (viagem.destino.invalid && (viagem.destino.dirty || viagem.destino.touched)) {
+        <mat-error>Nome do destino não inserido.</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Início da Viagem</mat-label>
+        <input matInput [matDatepicker]="pickerIda" formControlName="ida" class="inicio"
+          title="Data de início da viagem">
+        @if (viagem.ida.invalid && (viagem.ida.dirty || viagem.ida.touched)
+        ) {
+        <mat-error>Início da viagem não informado.</mat-error>
+        }
+        <mat-datepicker-toggle matIconSuffix [for]="pickerIda"></mat-datepicker-toggle>
+        <mat-datepicker #pickerIda></mat-datepicker>
+      </mat-form-field><mat-form-field>
+        <mat-label>Fim da Viagem</mat-label>
+        <input matInput [matDatepicker]="pickerVolta" formControlName="volta" class="inicio"
+          title="Data de volta da viagem">
+        @if (viagem.volta.invalid && (viagem.volta.dirty || viagem.volta.touched)) {
+        <mat-error>Fim da viagem não informado.</mat-error>
+        }
+        <mat-datepicker-toggle matIconSuffix [for]="pickerVolta"></mat-datepicker-toggle>
+        <mat-datepicker #pickerVolta></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="acoes-container">
+    <button mat-button type="button" (click)="onLimpar()">Limpar</button>
+    <button mat-button type="submit" [disabled]="!viagemForm.valid">Enviar</button>
+  </div>
+</form>

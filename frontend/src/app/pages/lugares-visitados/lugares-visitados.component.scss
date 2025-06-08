@@ -1,0 +1,7 @@
+@use '../../../styles/variables' as vars;
+
+.content {
+  margin: 8px;
+  width: calc(200vw - 1rem);
+  height: calc(90vh - vars.$toolbar-height);
+}

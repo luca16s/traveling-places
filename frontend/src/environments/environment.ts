@@ -1,8 +1,8 @@
 export const environment = {
-  baseRoute: 'travel',
+  baseRoute: 'iso',
   production: true,
   appLogo: 'assets/logo.svg',
-  menuPath: 'assets/data/menu.json',
+  menuPath: 'menu',
   appName: 'Meu Locais Visitados',
-  baseApiUrl: 'https://localhost:7204/api/v1/',
+  baseApiUrl: 'https://localhost:7136/api/v1/',
 };
