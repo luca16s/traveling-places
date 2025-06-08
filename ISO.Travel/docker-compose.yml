@@ -1,0 +1,22 @@
+services:
+  iso.travel.api:
+    image: ${DOCKER_REGISTRY-}isotravelapi
+    build:
+      context: .
+      dockerfile: ISO.Travel.Api/Dockerfile
+    environment:
+    - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=travelmap_db;User ID=sa;Password=YourStrongSQLPassword123!;TrustServerCertificate=True;
+    depends_on:
+      - sqlserver
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:latest
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrongSQLPassword123!"
+      MSSQL_PID: "Developer"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+volumes:
+  sqlserver_data:

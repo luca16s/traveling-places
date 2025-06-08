@@ -1,0 +1,6 @@
+@Travel.Api_HostAddress = http://localhost:5195
+
+GET {{Travel.Api_HostAddress}}/viagem/
+Accept: application/json
+
+###
